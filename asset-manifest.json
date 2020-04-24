@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/spotify-ui/static/css/main.e4f47533.chunk.css",
+    "main.js": "/spotify-ui/static/js/main.675c69a6.chunk.js",
+    "main.js.map": "/spotify-ui/static/js/main.675c69a6.chunk.js.map",
+    "runtime-main.js": "/spotify-ui/static/js/runtime-main.4fb669b0.js",
+    "runtime-main.js.map": "/spotify-ui/static/js/runtime-main.4fb669b0.js.map",
+    "static/js/2.f07e9f50.chunk.js": "/spotify-ui/static/js/2.f07e9f50.chunk.js",
+    "static/js/2.f07e9f50.chunk.js.map": "/spotify-ui/static/js/2.f07e9f50.chunk.js.map",
+    "index.html": "/spotify-ui/index.html",
+    "precache-manifest.10076bf821f2253654feb784c3ccdf12.js": "/spotify-ui/precache-manifest.10076bf821f2253654feb784c3ccdf12.js",
+    "service-worker.js": "/spotify-ui/service-worker.js",
+    "static/css/main.e4f47533.chunk.css.map": "/spotify-ui/static/css/main.e4f47533.chunk.css.map",
+    "static/js/2.f07e9f50.chunk.js.LICENSE.txt": "/spotify-ui/static/js/2.f07e9f50.chunk.js.LICENSE.txt",
+    "static/media/home.3005871a.svg": "/spotify-ui/static/media/home.3005871a.svg",
+    "static/media/library.d464e65a.svg": "/spotify-ui/static/media/library.d464e65a.svg",
+    "static/media/play.78b8b985.svg": "/spotify-ui/static/media/play.78b8b985.svg",
+    "static/media/search.0f637542.svg": "/spotify-ui/static/media/search.0f637542.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4fb669b0.js",
+    "static/js/2.f07e9f50.chunk.js",
+    "static/css/main.e4f47533.chunk.css",
+    "static/js/main.675c69a6.chunk.js"
+  ]
+}
