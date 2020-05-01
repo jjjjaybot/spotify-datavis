@@ -47,9 +47,40 @@ const Playlists = (props) => {
             name: 'Mood playlist 2',
             image:'https://images.unsplash.com/photo-1454391304352-2bf4678b1a7a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80'
         },
+        {
+            id: 108,
+            category_id: 1,
+            name: 'Home playlist 1',
+            image: 'https://images.unsplash.com/photo-1587622148498-ce97ad5dad0f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+        },
+        {
+            id: 109,
+            category_id: 1,
+            name: 'Home playlist 1',
+            image: 'https://images.unsplash.com/photo-1587622148498-ce97ad5dad0f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+        },
+        {
+            id: 110,
+            category_id: 1,
+            name: 'Home playlist 1',
+            image: 'https://images.unsplash.com/photo-1587622148498-ce97ad5dad0f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+        },
+        {
+            id: 111,
+            category_id: 1,
+            name: 'Home playlist 1',
+            image: 'https://images.unsplash.com/photo-1587622148498-ce97ad5dad0f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+        },
+        {
+            id: 112,
+            category_id: 1,
+            name: 'Home playlist 1',
+            image: 'https://images.unsplash.com/photo-1587622148498-ce97ad5dad0f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+        },
     ]
 
-    const matchedPlaylists = dataPlaylists.filter(playlist => playlist.category_id === props.category_id);
+    const matchedPlaylists = dataPlaylists.filter(playlist => playlist.category_id === props.category_id)
+                             .slice(0,props.limiter);
     return (
         <div className="cardsWrapInner">
         {matchedPlaylists.map((playlist, id) => (

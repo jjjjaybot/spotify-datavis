@@ -1,7 +1,9 @@
-import React from 'react';
+import React, {useRef, useEffect, useState} from 'react';
 import Playlists from './Playlists';
 
 const Categories = () => {
+    const mainInnerRef = useRef()
+    const [limiter, setLimiter] = useState(0)
 
     const dataCategories = [ 
         {
@@ -25,13 +27,26 @@ const Categories = () => {
             tagline: ''
         },
     ]
+
+    useEffect(() => {
+        const handleWindowResize = () => {
+            const calculation = Math.floor(mainInnerRef.current.getBoundingClientRect().width / 190); 
+            setLimiter(calculation)
+        }
+        handleWindowResize()
+
+        window.addEventListener('resize', handleWindowResize)
+
+        return () => window.removeEventListener('resize', handleWindowResize)
+    }, [])
+
     return (
-        <div>
+        <div className="mainInner" ref={mainInnerRef}>
         {dataCategories.map((category, id) => (
             <div className="cardsWrap" key={id}>
             <h2>{category.name}</h2>
             <p className="subText">Music to help you concentrate.</p>
-            <Playlists category_id = {category.id} />
+            <Playlists category_id = {category.id} limiter={limiter} />
             </div>
         ))}
             </div>
