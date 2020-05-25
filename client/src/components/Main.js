@@ -1,30 +1,24 @@
-import React from 'react';
-import Categories from './Categories';
-import {Switch, Route} from 'react-router-dom';
-import Playlist from './pages/Playlist';
+import React from "react";
+import Categories from "./Categories";
+import { Switch, Route } from "react-router-dom";
+import Playlist from "./pages/Playlist";
 
 const Main = () => {
-    return (
+  return (
     <div className="main">
-        <div className="upperNav">
-        </div>
-        <div className="mainContent">
+      <div className="upperNav"></div>
+      <div className="mainContent">
         <Switch>
-            <Route path="/" exact component={Categories}>
-                <Categories />
-            </Route>
-            <Route path="/search">
-                Search
-            </Route>
-            <Route path="/library">
-                Your library
-            </Route>
-            <Route path="/playlist/:id" component={Playlist}>
-            </Route>
+          <Route path="/" exact component={Categories}>
+            <Categories />
+          </Route>
+          <Route path="/search">Search</Route>
+          <Route path="/library">Your library</Route>
+          <Route path="/playlist/:id" component={Playlist}></Route>
         </Switch>
-        </div>
+      </div>
     </div>
-    )
-}
+  );
+};
 
 export default Main;
