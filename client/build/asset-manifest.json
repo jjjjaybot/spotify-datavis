@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/spotify-ui/static/css/main.776c45c9.chunk.css",
+    "main.js": "/spotify-ui/static/js/main.ac2e4382.chunk.js",
+    "main.js.map": "/spotify-ui/static/js/main.ac2e4382.chunk.js.map",
+    "runtime-main.js": "/spotify-ui/static/js/runtime-main.4fb669b0.js",
+    "runtime-main.js.map": "/spotify-ui/static/js/runtime-main.4fb669b0.js.map",
+    "static/js/2.32c3503e.chunk.js": "/spotify-ui/static/js/2.32c3503e.chunk.js",
+    "static/js/2.32c3503e.chunk.js.map": "/spotify-ui/static/js/2.32c3503e.chunk.js.map",
+    "index.html": "/spotify-ui/index.html",
+    "precache-manifest.2fa4cb440858c558f237a6ff27945c64.js": "/spotify-ui/precache-manifest.2fa4cb440858c558f237a6ff27945c64.js",
+    "service-worker.js": "/spotify-ui/service-worker.js",
+    "static/css/main.776c45c9.chunk.css.map": "/spotify-ui/static/css/main.776c45c9.chunk.css.map",
+    "static/js/2.32c3503e.chunk.js.LICENSE.txt": "/spotify-ui/static/js/2.32c3503e.chunk.js.LICENSE.txt",
+    "static/media/back.6c4bb4f4.svg": "/spotify-ui/static/media/back.6c4bb4f4.svg",
+    "static/media/heart.9834a799.svg": "/spotify-ui/static/media/heart.9834a799.svg",
+    "static/media/home.3005871a.svg": "/spotify-ui/static/media/home.3005871a.svg",
+    "static/media/library.d464e65a.svg": "/spotify-ui/static/media/library.d464e65a.svg",
+    "static/media/note.ceeb8cd1.svg": "/spotify-ui/static/media/note.ceeb8cd1.svg",
+    "static/media/play.78b8b985.svg": "/spotify-ui/static/media/play.78b8b985.svg",
+    "static/media/previous.d8df902c.svg": "/spotify-ui/static/media/previous.d8df902c.svg",
+    "static/media/search.0f637542.svg": "/spotify-ui/static/media/search.0f637542.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4fb669b0.js",
+    "static/js/2.32c3503e.chunk.js",
+    "static/css/main.776c45c9.chunk.css",
+    "static/js/main.ac2e4382.chunk.js"
+  ]
+}
