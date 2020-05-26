@@ -17,10 +17,10 @@ const Header = styled.header`
   position: relative;
 `;
 const Avatar = styled.div`
-  width: 150px;
-  height: 150px;
+  width: 250px;
+  height: 250px;
   img {
-    border-radius: 100%;
+    ${"" /* border-radius: 100%;  */}
   }
 `;
 const NoAvatar = styled.div`
@@ -37,7 +37,7 @@ const UserName = styled.a`
 const Name = styled.h1`
   font-size: 50px;
   font-weight: 700;
-  margin: 20px 0 0;
+  margin: 40px 0 0;
   ${media.tablet`
     font-size: 40px;
   `};
@@ -182,7 +182,7 @@ class User extends Component {
     followedArtists: null,
     playlists: null,
     topArtists: null,
-    topTracks: null
+    topTracks: null,
   };
 
   componentDidMount() {
@@ -195,7 +195,7 @@ class User extends Component {
       followedArtists,
       playlists,
       topArtists,
-      topTracks
+      topTracks,
     } = await getUserInfo();
     this.setState({ user, followedArtists, playlists, topArtists, topTracks });
   }
@@ -206,7 +206,7 @@ class User extends Component {
       followedArtists,
       playlists,
       topArtists,
-      topTracks
+      topTracks,
     } = this.state;
     const totalPlaylists = playlists ? playlists.total : 0;
     console.log(followedArtists);
@@ -218,7 +218,7 @@ class User extends Component {
             <Header>
               <Avatar>
                 {user.images.length > 0 ? (
-                  <img src={user.images[0].url} alt='avatar' />
+                  <img src={user.images[0].url} alt="avatar" />
                 ) : (
                   <NoAvatar>
                     <IconUser />
@@ -227,8 +227,8 @@ class User extends Component {
               </Avatar>
               <UserName
                 href={user.external_urls.spotify}
-                target='_blank'
-                rel='noopener noreferrer'
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <Name>{user.display_name}</Name>
               </UserName>
@@ -240,7 +240,7 @@ class User extends Component {
                 {followedArtists && (
                   <Stat>
                     <Number>
-                      <ArtistName to='/follow'>
+                      <ArtistName to="/follow">
                         {followedArtists.artists.items.length}
                       </ArtistName>
                     </Number>
@@ -249,7 +249,7 @@ class User extends Component {
                 )}
                 {totalPlaylists && (
                   <Stat>
-                    <Link to='playlists'>
+                    <Link to="playlists">
                       <Number>{totalPlaylists}</Number>
                       <NumLabel>Playlists</NumLabel>
                     </Link>
@@ -263,7 +263,7 @@ class User extends Component {
               <Tracklist>
                 <TracklistHeading>
                   <h3>Top Artists of All Time</h3>
-                  <MoreButton to='/artists'>See More</MoreButton>
+                  <MoreButton to="/artists">See More</MoreButton>
                 </TracklistHeading>
                 <div>
                   {topArtists ? (
@@ -272,7 +272,7 @@ class User extends Component {
                         <Artist key={i}>
                           <ArtistArtwork to={`/artist/${artist.id}`}>
                             {artist.images.length && (
-                              <img src={artist.images[2].url} alt='Artist' />
+                              <img src={artist.images[2].url} alt="Artist" />
                             )}
                             <Mask>
                               <IconInfo />
@@ -293,7 +293,7 @@ class User extends Component {
               <Tracklist>
                 <TracklistHeading>
                   <h3>Top Tracks of All Time</h3>
-                  <MoreButton to='/tracks'>See More</MoreButton>
+                  <MoreButton to="/tracks">See More</MoreButton>
                 </TracklistHeading>
                 <ul>
                   {topTracks ? (
