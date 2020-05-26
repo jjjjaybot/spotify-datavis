@@ -1,12 +1,12 @@
-import React from 'react';
-import styled from 'styled-components/macro';
-import { theme, mixins, Main } from '../styles';
+import React from "react";
+import styled from "styled-components/macro";
+import { theme, mixins, Main } from "../styles";
 const { colors, fontSizes } = theme;
 
 const LOGIN_URI =
-  process.env.NODE_ENV !== 'production'
-    ? 'http://localhost:8888/login'
-    : 'https://spotify-profile.herokuapp.com/login';
+  process.env.NODE_ENV !== "production"
+    ? "http://localhost:8888/login"
+    : "https://spotify-datavis.herokuapp.com/login";
 
 const Login = styled(Main)`
   ${mixins.flexCenter};
