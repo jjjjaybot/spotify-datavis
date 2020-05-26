@@ -1,19 +1,19 @@
 {
-  "name": "spotify-profile",
+  "name": "spotify-datavis",
   "version": "0.1.0",
   "description": "Spotify Profile",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bchiang7/spotify-profile.git"
+    "url": "https://github.com/bchiang7/spotify-datavis.git"
   },
   "keywords": [],
-  "author": "Brittany Chiang <brittany.chiang@gmail.com>",
+  "author": "Jiazi Cai",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/bchiang7/spotify-profile/issues"
+    "url": "https://github.com/caijiazi/spotify-datavis/issues"
   },
-  "homepage": "https://github.com/bchiang7/spotify-profile#readme",
+  "homepage": "https://github.com/caijiazi/spotify-datavis#readme",
   "engines": {
     "node": "10.13.0"
   },
