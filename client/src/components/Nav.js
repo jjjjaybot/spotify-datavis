@@ -9,7 +9,7 @@ import {
   IconPlaylist,
   IconMusic,
   IconGithub,
-  IconFollowed
+  IconFollowed,
 } from "./icons";
 
 import styled from "styled-components/macro";
@@ -132,48 +132,48 @@ const MenuItem = styled.li`
 const isActive = ({ isCurrent }) =>
   isCurrent ? { className: "active" } : null;
 
-const NavLink = props => <Link getProps={isActive} {...props} />;
+const NavLink = (props) => <Link getProps={isActive} {...props} />;
 
 const Nav = () => (
   <Container>
     <Logo>
-      <Link to='/'>
+      <Link to="/">
         <IconSpotify />
       </Link>
     </Logo>
     <Menu>
       <MenuItem>
-        <NavLink to='/'>
+        <NavLink to="/">
           <IconUser />
           <div>Profile</div>
         </NavLink>
       </MenuItem>
       <MenuItem>
-        <NavLink to='artists'>
-          <IconMicrophone />
-          <div>Top Artists</div>
-        </NavLink>
-      </MenuItem>
-      <MenuItem>
-        <NavLink to='follow'>
-          <IconFollowed />
-          <div>Followed</div>
-        </NavLink>
-      </MenuItem>
-      <MenuItem>
-        <NavLink to='tracks'>
-          <IconMusic />
-          <div>Top Tracks</div>
-        </NavLink>
-      </MenuItem>
-      <MenuItem>
-        <NavLink to='recent'>
+        <NavLink to="recent">
           <IconTime />
           <div>Recent</div>
         </NavLink>
       </MenuItem>
       <MenuItem>
-        <NavLink to='playlists'>
+        <NavLink to="artists">
+          <IconMicrophone />
+          <div>Top Artists</div>
+        </NavLink>
+      </MenuItem>
+      <MenuItem>
+        <NavLink to="tracks">
+          <IconMusic />
+          <div>Top Tracks</div>
+        </NavLink>
+      </MenuItem>
+      <MenuItem>
+        <NavLink to="follow">
+          <IconFollowed />
+          <div>Followed</div>
+        </NavLink>
+      </MenuItem>
+      <MenuItem>
+        <NavLink to="playlists">
           <IconPlaylist />
           <div>Playlists</div>
         </NavLink>
@@ -181,9 +181,9 @@ const Nav = () => (
     </Menu>
     <Github>
       <a
-        href='https://github.com/jiazicai/spotify-ui'
-        target='_blank'
-        rel='noopener noreferrer'
+        href="https://github.com/jiazicai/spotify-ui"
+        target="_blank"
+        rel="noopener noreferrer"
       >
         <IconGithub />
       </a>
