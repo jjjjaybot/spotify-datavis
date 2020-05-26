@@ -1,103 +1,155 @@
-import React from 'react';
-import {ReactComponent as PlayIcon} from '../svgs/play.svg';
-import {Link} from 'react-router-dom';
+import React, { Component } from 'react';
+import { Link } from '@reach/router';
+import { getPlaylists } from '../spotify';
+import { catchErrors } from '../utils';
 
+import Loader from './Loader';
+import { IconMusic } from './icons';
 
-const Playlists = (props) => {
-    const dataPlaylists = [
-        {
-            id: 101,
-            category_id: 1,
-            name: 'Home playlist 1',
-            image: 'https://images.unsplash.com/photo-1587622148498-ce97ad5dad0f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-        },
-        {
-            id: 102,
-            category_id: 1,
-            name: 'Home playlist 2',
-            image: 'https://images.unsplash.com/photo-1527439243619-f57764e22f29?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80'
-        },
-        {
-            id: 103,
-            category_id: 2,
-            name: 'Home playlist 3',
-            image: 'https://images.unsplash.com/photo-1451976426598-a7593bd6d0b2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80'
-        },
-        {
-            id: 104,
-            category_id: 1,
-            name: 'Focus playlist 1',
-            image: 'https://images.unsplash.com/photo-1527380992061-b126c88cbb41?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1001&q=80'
-        },
-        {
-            id: 105,
-            category_id: 2,
-            name: 'Sunday playlist',
-            image: 'https://images.unsplash.com/photo-1499946981954-e7f4b234d7fa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80'
-        },
-        {
-            id: 106,
-            category_id: 3,
-            name: 'Mood playlist 1',
-            image:'https://images.unsplash.com/photo-1500829243541-74b677fecc30?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1955&q=80'
-        },
-        {
-            id: 107,
-            category_id: 3,
-            name: 'Mood playlist 2',
-            image:'https://images.unsplash.com/photo-1454391304352-2bf4678b1a7a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80'
-        },
-        {
-            id: 108,
-            category_id: 1,
-            name: 'Home playlist 1',
-            image: 'https://images.unsplash.com/photo-1587622148498-ce97ad5dad0f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-        },
-        {
-            id: 109,
-            category_id: 1,
-            name: 'Home playlist 1',
-            image: 'https://images.unsplash.com/photo-1587622148498-ce97ad5dad0f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-        },
-        {
-            id: 110,
-            category_id: 1,
-            name: 'Home playlist 1',
-            image: 'https://images.unsplash.com/photo-1587622148498-ce97ad5dad0f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-        },
-        {
-            id: 111,
-            category_id: 1,
-            name: 'Home playlist 1',
-            image: 'https://images.unsplash.com/photo-1587622148498-ce97ad5dad0f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-        },
-        {
-            id: 112,
-            category_id: 1,
-            name: 'Home playlist 1',
-            image: 'https://images.unsplash.com/photo-1587622148498-ce97ad5dad0f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-        },
-    ]
+import styled from 'styled-components/macro';
+import { theme, mixins, media, Main } from '../styles';
+const { colors, fontSizes, spacing } = theme;
 
-    const matchedPlaylists = dataPlaylists.filter(playlist => playlist.category_id === props.category_id)
-                             .slice(0,props.limiter);
+const Wrapper = styled.div`
+  ${mixins.flexBetween};
+  align-items: flex-start;
+`;
+const PlaylistsContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: ${spacing.md};
+  width: 100%;
+  margin-top: 50px;
+  ${media.tablet`
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  `};
+  ${media.phablet`
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  `};
+`;
+const Playlist = styled.div`
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+`;
+const PlaylistMask = styled.div`
+  ${mixins.flexCenter};
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 30px;
+  color: ${colors.white};
+  opacity: 0;
+  transition: ${theme.transition};
+`;
+const PlaylistImage = styled.img`
+  object-fit: cover;
+`;
+const PlaylistCover = styled(Link)`
+  ${mixins.coverShadow};
+  position: relative;
+  width: 100%;
+  margin-bottom: ${spacing.base};
+  &:hover,
+  &:focus {
+    ${PlaylistMask} {
+      opacity: 1;
+    }
+  }
+`;
+const PlaceholderArtwork = styled.div`
+  ${mixins.flexCenter};
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;
+  background-color: ${colors.darkGrey};
+  svg {
+    width: 50px;
+    height: 50px;
+  }
+`;
+const PlaceholderContent = styled.div`
+  ${mixins.flexCenter};
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+`;
+const PlaylistName = styled(Link)`
+  display: inline;
+  border-bottom: 1px solid transparent;
+  &:hover,
+  &:focus {
+    border-bottom: 1px solid ${colors.white};
+  }
+`;
+const TotalTracks = styled.div`
+  text-transform: uppercase;
+  margin: 5px 0;
+  color: ${colors.lightGrey};
+  font-size: ${fontSizes.xs};
+  letter-spacing: 1px;
+`;
+
+class Playlists extends Component {
+  state = {
+    playlists: null,
+  };
+
+  componentDidMount() {
+    catchErrors(this.getData());
+  }
+
+  async getData() {
+    const { data } = await getPlaylists();
+    this.setState({ playlists: data });
+  }
+
+  render() {
+    const { playlists } = this.state;
+
     return (
-        <div className="cardsWrapInner">
-        {matchedPlaylists.map((playlist, id) => (
-            <Link to={`/playlist/` + playlist.id}>
-            <div className="card" key={id}>
-                    <div className="cardImage">
-                        <img src={playlist.image} alt="Pic 1"/>
-                    </div>
-                    <div className="cardContent">
-                        <h3>{playlist.name}</h3>
-                        <span>Minimalism, electronica and modern...</span>
-                    </div>
-                    <span className="playIcon"><PlayIcon /></span>
-                </div> 
-            </Link>
-        ))}
-                </div>
-    )
+      <Main>
+        <h2>Your Playlists</h2>
+        <Wrapper>
+          <PlaylistsContainer>
+            {playlists ? (
+              playlists.items.map(({ id, images, name, tracks }, i) => (
+                <Playlist key={i}>
+                  <PlaylistCover to={id}>
+                    {images.length ? (
+                      <PlaylistImage src={images[0].url} alt="Album Art" />
+                    ) : (
+                      <PlaceholderArtwork>
+                        <PlaceholderContent>
+                          <IconMusic />
+                        </PlaceholderContent>
+                      </PlaceholderArtwork>
+                    )}
+                    <PlaylistMask>
+                      <i className="fas fa-info-circle" />
+                    </PlaylistMask>
+                  </PlaylistCover>
+                  <div>
+                    <PlaylistName to={id}>{name}</PlaylistName>
+                    <TotalTracks>{tracks.total} Tracks</TotalTracks>
+                  </div>
+                </Playlist>
+              ))
+            ) : (
+              <Loader />
+            )}
+          </PlaylistsContainer>
+        </Wrapper>
+      </Main>
+    );
+  }
 }
+
 export default Playlists;

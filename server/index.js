@@ -71,11 +71,11 @@ if (cluster.isMaster) {
       history({
         verbose: true,
         rewrites: [
-          { from: /\./, to: "/" },
+          // { from: /\./, to: "/" },
           { from: /\/login/, to: "/login" },
           { from: /\/callback/, to: "/callback" },
-          { from: /\/refresh_token/, to: "/refresh_token" },
-        ],
+          { from: /\/refresh_token/, to: "/refresh_token" }
+        ]
       })
     )
     .use(express.static(path.resolve(__dirname, "../client/build")));
@@ -96,7 +96,7 @@ if (cluster.isMaster) {
         client_id: CLIENT_ID,
         scope: scope,
         redirect_uri: REDIRECT_URI,
-        state: state,
+        state: state
       })}`
     );
   });
@@ -118,14 +118,14 @@ if (cluster.isMaster) {
         form: {
           code: code,
           redirect_uri: REDIRECT_URI,
-          grant_type: "authorization_code",
+          grant_type: "authorization_code"
         },
         headers: {
           Authorization: `Basic ${new Buffer.from(
             `${CLIENT_ID}:${CLIENT_SECRET}`
-          ).toString("base64")}`,
+          ).toString("base64")}`
         },
-        json: true,
+        json: true
       };
 
       request.post(authOptions, function (error, response, body) {
@@ -137,7 +137,7 @@ if (cluster.isMaster) {
           res.redirect(
             `${FRONTEND_URI}/#${querystring.stringify({
               access_token,
-              refresh_token,
+              refresh_token
             })}`
           );
         } else {
@@ -157,13 +157,13 @@ if (cluster.isMaster) {
       headers: {
         Authorization: `Basic ${new Buffer.from(
           `${CLIENT_ID}:${CLIENT_SECRET}`
-        ).toString("base64")}`,
+        ).toString("base64")}`
       },
       form: {
         grant_type: "refresh_token",
-        refresh_token,
+        refresh_token
       },
-      json: true,
+      json: true
     };
 
     request.post(authOptions, function (error, response, body) {

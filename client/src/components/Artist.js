@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { formatWithCommas, catchErrors } from "../utils";
-import { getArtist, followArtist, doesUserFollowArtist } from "../spotify";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { formatWithCommas, catchErrors } from '../utils';
+import { getArtist, followArtist, doesUserFollowArtist } from '../spotify';
 
-import Loader from "./Loader";
+import Loader from './Loader';
 
-import styled from "styled-components/macro";
-import { theme, mixins, media, Main } from "./styles";
+import styled from 'styled-components/macro';
+import { theme, mixins, media, Main } from '../styles';
 const { colors, fontSizes, spacing } = theme;
 
 const ArtistContainer = styled(Main)`
@@ -67,15 +67,13 @@ const FollowButton = styled.button`
   ${mixins.greenButton};
   margin-top: 50px;
   padding: 12px 50px;
-  background-color: ${(props) =>
-    props.isFollowing ? "transparent" : colors.green};
-  border: 1px solid ${(props) => (props.isFollowing ? "white" : "transparent")};
-  pointer-events: ${(props) => (props.isFollowing ? "none" : "auto")};
-  cursor: ${(props) => (props.isFollowing ? "default" : "pointer")};
+  background-color: ${props => (props.isFollowing ? 'transparent' : colors.green)};
+  border: 1px solid ${props => (props.isFollowing ? 'white' : 'transparent')};
+  pointer-events: ${props => (props.isFollowing ? 'none' : 'auto')};
+  cursor: ${props => (props.isFollowing ? 'default' : 'pointer')};
   &:hover,
   &:focus {
-    background-color: ${(props) =>
-      props.isFollowing ? "transparent" : colors.offGreen};
+    background-color: ${props => (props.isFollowing ? 'transparent' : colors.offGreen)};
   }
 `;
 
@@ -132,7 +130,7 @@ class Artist extends Component {
                 {artist.genres && (
                   <Stat>
                     <Number>
-                      {artist.genres.map((genre) => (
+                      {artist.genres.map(genre => (
                         <Genre key={genre}>{genre}</Genre>
                       ))}
                     </Number>
@@ -147,11 +145,8 @@ class Artist extends Component {
                 )}
               </Stats>
             </div>
-            <FollowButton
-              isFollowing={isFollowing}
-              onClick={catchErrors(this.follow)}
-            >
-              {isFollowing ? "Following" : "Follow"}
+            <FollowButton isFollowing={isFollowing} onClick={catchErrors(this.follow)}>
+              {isFollowing ? 'Following' : 'Follow'}
             </FollowButton>
           </ArtistContainer>
         ) : (

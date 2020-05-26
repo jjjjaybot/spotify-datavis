@@ -1,6 +1,6 @@
-import React from "react";
-import styled, { keyframes } from "styled-components/macro";
-import { theme, mixins } from "./styles";
+import React from 'react';
+import styled, { keyframes } from 'styled-components/macro';
+import { theme, mixins } from '../styles';
 const { colors } = theme;
 
 const Container = styled.div`
@@ -41,7 +41,7 @@ const Bar = styled.div`
   animation-direction: alternate;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
-  animation-delay: ${(props) => props.delay || "0ms"};
+  animation-delay: ${props => props.delay || '0ms'};
 `;
 
 const Loader = () => (
