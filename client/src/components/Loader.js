@@ -1,6 +1,6 @@
-import React from 'react';
-import styled, { keyframes } from 'styled-components/macro';
-import { theme, mixins } from '../styles';
+import React from "react";
+import styled, { keyframes } from "styled-components/macro";
+import { theme, mixins } from "../styles";
 const { colors } = theme;
 
 const Container = styled.div`
@@ -21,9 +21,9 @@ const Bars = styled.div`
   justify-content: center;
   align-items: flex-end;
   overflow: hidden;
-  width: 100px;
-  min-width: 100px;
-  height: 50px;
+  width: 150px;
+  min-width: 150px;
+  height: 100px;
   margin: 0 auto;
   z-index: 2;
   position: relative;
@@ -31,7 +31,7 @@ const Bars = styled.div`
   right: 0;
 `;
 const Bar = styled.div`
-  width: 10px;
+  width: 20px;
   height: 5px;
   margin: 0 2px;
   background-color: ${colors.green};
@@ -41,7 +41,7 @@ const Bar = styled.div`
   animation-direction: alternate;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
-  animation-delay: ${props => props.delay || '0ms'};
+  animation-delay: ${(props) => props.delay || "0ms"};
 `;
 
 const Loader = () => (
