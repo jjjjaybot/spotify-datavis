@@ -181,7 +181,7 @@ const Nav = () => (
     </Menu>
     <Github>
       <a
-        href="https://github.com/jiazicai/spotify-ui"
+        href="https://github.com/jiazicai/spotify-datavis"
         target="_blank"
         rel="noopener noreferrer"
       >
