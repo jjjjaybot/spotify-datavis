@@ -1,13 +1,4 @@
-This project is based on the project of https://github.com/bchiang7/spotify-profile by the author of Brittany Chiang.
-
-I included functionality such as get followed artists, and redesign the layout and css.
-My next step is to include more functionality such as unfollow artists, and change the recommend compomnent.
-
-
-
-
-
-# Spotify Profile
+# Spotify Data Vis
 
 > A web app for visualizing personalized Spotify data
 
@@ -46,4 +37,10 @@ My next step is to include more functionality such as unfollow artists, and chan
 4. Add `http://app-name.herokuapp.com/callback` as a Redirect URI in the spotify application settings
 
 5. Once the app is live on Heroku, hitting http://app-name.herokuapp.com/login should be the same as hitting http://localhost:8888/login
+
+
+This project is based on the project of https://github.com/bchiang7/spotify-profile by the author of Brittany Chiang.
+
+I included functionality such as get followed artists, and redesign the layout and css.
+My next step is to include more functionality such as unfollow artists, and change the recommend compomnent.
 
