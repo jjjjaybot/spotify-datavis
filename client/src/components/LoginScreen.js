@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components/macro";
 import { theme, mixins, Main } from "../styles";
+import { IconSpotify } from "./icons";
+import { media } from "../styles";
 const { colors, fontSizes } = theme;
 
 const LOGIN_URI =
@@ -16,6 +18,17 @@ const Login = styled(Main)`
     font-size: ${fontSizes.xxl};
   }
 `;
+
+const Logo = styled.div`
+  color: ${colors.green};
+  margin-bottom: 30px;
+  width: 100px;
+  height: 100px;
+  svg {
+    width: 100px;
+  }
+`;
+
 const LoginButton = styled.a`
   display: inline-block;
   background-color: ${colors.green};
@@ -36,7 +49,10 @@ const LoginButton = styled.a`
 
 const LoginScreen = () => (
   <Login>
-    <h1>Spotify Profile</h1>
+    <Logo>
+      <IconSpotify />
+    </Logo>
+    <h1>Spotify Data Vis</h1>
     <LoginButton href={LOGIN_URI}>Log in to Spotify</LoginButton>
   </Login>
 );
