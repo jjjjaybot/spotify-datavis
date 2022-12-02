@@ -1,5 +1,5 @@
 {
-  "name": "spotify-datavis",
+  "name": "spotify-data-visual",
   "version": "0.1.0",
   "private": true,
   "eslintConfig": {
@@ -25,7 +25,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "homepage": "https://spotify-datavis.herokuapp.com",
+  "homepage": "https://spotify-data-visual.herokuapp.com",
   "proxy": "http://localhost:8888",
   "lint-staged": {
     "*.{js}": [

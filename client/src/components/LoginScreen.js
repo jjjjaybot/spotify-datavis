@@ -6,9 +6,9 @@ import { media } from "../styles";
 const { colors, fontSizes } = theme;
 
 const LOGIN_URI =
-  process.env.NODE_ENV !== "production"
-    ? "http://localhost:8888/login"
-    : "https://spotify-datavis.herokuapp.com/login";
+  process.env.NODE_ENV !== 'production'
+    ? 'http://localhost:8888/login'
+    : 'https://spotify-data-visual.herokuapp.com/login';
 
 const Login = styled(Main)`
   ${mixins.flexCenter};

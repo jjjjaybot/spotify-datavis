@@ -1,19 +1,19 @@
 {
-  "name": "spotify-datavis",
+  "name": "spotify-data-visual",
   "version": "0.1.0",
   "description": "Spotify Profile",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jiazicai/spotify-datavis.git"
+    "url": "https://github.com/jiazicai/spotify-data-visual.git"
   },
   "keywords": [],
   "author": "Jiazi Cai",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/caijiazi/spotify-datavis/issues"
+    "url": "https://github.com/caijiazi/spotify-data-visual/issues"
   },
-  "homepage": "https://github.com/caijiazi/spotify-datavis#readme",
+  "homepage": "https://github.com/caijiazi/spotify-data-visual#readme",
   "engines": {
     "node": "10.13.0"
   },
